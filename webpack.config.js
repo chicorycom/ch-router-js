@@ -6,7 +6,7 @@ module.exports = {
     output: {
         path: path.resolve('dist'),
         filename: 'index.js',
-        libraryTarget: 'commonjs2',
+       libraryTarget: 'commonjs2',
     },
     module: {
         rules: [
@@ -19,5 +19,12 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js'],
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
+        compress: true,
+        port: 9000,
     },
 };

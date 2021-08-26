@@ -71,4 +71,3 @@ String.prototype.capitalize = function() {
       return template.innerHTML
     }
   }
-  

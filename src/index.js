@@ -1,12 +1,14 @@
 import Router from './Router'
 import AbstractView from './AbstractView'
 
+export const Controller = AbstractView
+
 
 /**
  *
  * @param {object} options
  */
-export const router = (options) => {
+export function router (options)  {
    // const _el = typeof options.el === 'object' ? options.el : document.querySelector(options.el)
 
    const r = new Router(options);
@@ -17,7 +19,7 @@ export const router = (options) => {
 
             if (e.target.matches("[ch-link]")) {
                 e.preventDefault();
-                return r.navigate(e.target.href)
+                return r.navigateTo(e.target.href)
             }
 
             if (e.target.matches("[ch-delete]")) {
@@ -41,10 +43,11 @@ export const router = (options) => {
                 return await options.logout(e.target)
             }
         })
-
+       r.router();
     })
 }
 
-export const AbstractController = AbstractView;
+
+
 
 

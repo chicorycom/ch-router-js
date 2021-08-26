@@ -14,7 +14,7 @@ export default class {
      */
     navigateTo(url){
         history.pushState(null, null, url);
-        this.router().then(()=>{});
+        this.router();
     }
 
 
@@ -38,7 +38,6 @@ export default class {
         }
 
         const view = new match.route.view(this.getParams(match));
-
         this.el.innerHTML =  view.getHtml();
     }
 
