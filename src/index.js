@@ -6,7 +6,7 @@ import AbstractView from './AbstractView'
  *
  * @param {object} options
  */
-const router = (options) => {
+export const router = (options) => {
    // const _el = typeof options.el === 'object' ? options.el : document.querySelector(options.el)
 
    const r = new Router(options);
@@ -45,9 +45,6 @@ const router = (options) => {
     })
 }
 
-export default {
-    router,
-    AbstractView
-};
+export const AbstractController = AbstractView;
 
 
