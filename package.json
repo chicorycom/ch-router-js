@@ -1,0 +1,29 @@
+{
+  "name": "ch-router-js",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chicorycom/ch-router-js.git"
+  },
+  "keywords": [
+    "router-js",
+    "chicorycom-router-js"
+  ],
+  "author": "Chicorycom <contact@chicorycom.net>",
+  "bugs": {
+    "url": "https://github.com/chicorycom/ch-router-js/issues"
+  },
+  "homepage": "https://github.com/chicorycom/ch-router-js",
+  "devDependencies": {
+    "@babel/core": "7.15.0",
+    "babel-loader": "8.2.2",
+    "webpack": "5.51.1",
+    "webpack-cli": "4.8.0"
+  }
+}

@@ -1,0 +1,17 @@
+.rej
+*.rej
+*.orig
+.idea/
+.vscode/
+bin/
+dist/
+node_modules/
+temp/
+versions/
+*.zip
+/bin
+package-lock.json
+yarn.lock
+yarn-error.log
+.npmignore
+
