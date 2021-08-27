@@ -7,7 +7,7 @@ String.prototype.capitalize = function() {
       this.title = location.pathname.substring(1) || '';
       this.response = `<template></template>`;
     }
-  
+
     /**
      *
      * @param {string} title
@@ -17,7 +17,7 @@ String.prototype.capitalize = function() {
     setTitle(title, icon='') {
           document.title = title.capitalize();
     }
-  
+
     /**
      *
      * @returns {Promise<string>}
@@ -25,7 +25,7 @@ String.prototype.capitalize = function() {
     async getHtml() {
       return "";
     }
-  
+
     /**
      *
      * @param {string} url
@@ -34,11 +34,11 @@ String.prototype.capitalize = function() {
     async get(url){
       return await fetch(url).then(re => re.text())
     }
-  
+
     /**
      *
      * @param {string} response
-     * @returns {string}
+     * @returns {string<innerHTML>}
      */
     view(response){
       let template = document.createElement('div');
@@ -48,26 +48,26 @@ String.prototype.capitalize = function() {
       const style_element = template.getElementsByTagName("style");
       const styles = Array.prototype.slice.call(style_element)
       const header = document.head
-  
+
       const taskTemplate = template.getElementsByTagName('template')[0];
       template = taskTemplate ? taskTemplate : template;
       const clone = taskTemplate ? document.importNode(template.content, true) : template;
-  
-  
+
+
       template.appendChild(clone.cloneNode(true));
-  
+
       if(scripts.length > 0 && template) {
         scripts.forEach(script => {
           header.appendChild(script);
         })
       }
-  
+
       if(styles.length > 0 && template) {
         styles.forEach(style => {
           header.appendChild(style);
         })
       }
-  
+
       return template.innerHTML
     }
   }

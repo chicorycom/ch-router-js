@@ -7,11 +7,31 @@ export const Controller = AbstractView
 /**
  *
  * @param {object} options
+ * @returns {{el}|*}
  */
 export function router (options)  {
-   // const _el = typeof options.el === 'object' ? options.el : document.querySelector(options.el)
 
-   const r = new Router(options);
+    // default options
+    const defaultOption = {
+        el: options.el || document.querySelector('#app'),
+        routes: [],
+        async save(e){},
+        async edit(e){},
+        async destroy(e){},
+        async logout(e){}
+    };
+
+        for (const defaultKey in defaultOption) {
+            if (defaultOption.hasOwnProperty(defaultKey) && !options.hasOwnProperty(defaultKey)) {
+                options[defaultKey] = defaultOption[defaultKey];
+            }
+        }
+
+
+    const r = new Router({el: options.el, routes: options.routes});
+
+   const { save,  edit, destroy, logout} = options
+
 
    window.addEventListener('DOMContentLoaded', () => {
 
@@ -22,29 +42,32 @@ export function router (options)  {
                 return r.navigateTo(e.target.href)
             }
 
-            if (e.target.matches("[ch-delete]")) {
-                e.preventDefault();
-                return await options.deleting(e.target)
-            }
-
             if(e.target.matches("[ch-save]")){
                 e.preventDefault();
-                return await options.saveEdit(e.target)
+                return await save(e.target)
 
             }
 
             if (e.target.matches("[ch-edit]")) {
                 e.preventDefault();
-                return await options.edit(e.target)
+                return await edit(e.target)
+            }
+
+            if (e.target.matches("[ch-destroy]")) {
+                e.preventDefault();
+                return await destroy(e.target)
             }
 
             if (e.target.matches("[ch-logout]")) {
                 e.preventDefault();
-                return await options.logout(e.target)
+                return await logout(e.target)
             }
         })
        r.router();
     })
+
+    window.addEventListener("popstate", ()=>r.router());
+    return options
 }
 
 

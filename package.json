@@ -1,6 +1,6 @@
 {
   "name": "ch-router-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "module": "src/index.js",
   "main": "dist/index.js",
   "license": "MIT",
@@ -14,7 +14,10 @@
   },
   "keywords": [
     "router-js",
-    "chicorycom-router-js"
+    "chicorycom-router-js",
+    "ch-router-js",
+    "front-router-js",
+    "frontend-router-js"
   ],
   "author": "Chicorycom <contact@chicorycom.net>",
   "bugs": {
