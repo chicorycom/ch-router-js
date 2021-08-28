@@ -19,26 +19,26 @@ export default class {
 
 
 
-    router(){
+   async router(){
             // Test each route for potential match
-        const potentialMatches = this.routes.map(route => {
+        const potentialMatches = await this.routes.map(route => {
             return {
                 route: route,
                 result: location.pathname.match(this.pathToRegex(route.path))
             };
         });
 
-        let match = potentialMatches.find(potentialMatch => potentialMatch.result !== null);
+        let match = await potentialMatches.find(potentialMatch => potentialMatch.result !== null);
 
         if (!match) {
-            match = {
+            match =  {
                 route: this.routes[0],
                 result: [location.pathname]
             };
         }
 
-        const view = new match.route.view(this.getParams(match));
-        this.el.innerHTML =  view.getHtml();
+        const view =  new match.route.view(this.getParams(match));
+        this.el.innerHTML =  await view.getHtml();
     }
 
     /**
