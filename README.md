@@ -1,6 +1,4 @@
----
-search: english Your Security System Network Integrator. [Chicorycom][website] 👋
----
+Your Security System Network Integrator. [Chicorycom][website] 👋
 
 # ch-router-js
 
