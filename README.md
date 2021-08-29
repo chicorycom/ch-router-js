@@ -58,11 +58,12 @@ class About extends Controller {
     }
 
     /**
-     *
-     * @returns {Promise<string>}
+     * 
+     * @returns {Promise<*>}
      */
-    getHtml() {
-        return this.view(`<template><h1>About</h1></template>`);
+  async  getHtml() {
+        const response = await this.get('/pages/dashboard')
+        return this.view(response);
     }
 }
 
@@ -101,6 +102,32 @@ logout | `function` | selected html element attribute ch-logout
 
 For example:
 
+
+### Template page html or blade or ejs or twig ...
+
+`Template send page to server`
+
+```html
+<template>
+    <div class="__card-shadow-heading">
+        <span class="__card-shadow-heading-action">
+            <a class="list-toolbar-btn" href="#" title="configure">
+                <i class="fas fa-cog"></i>
+            </a>
+            <a class="list-toolbar-btn" href="#" title="refresh">
+                <i class="fas fa-sync-alt"></i>
+            </a>
+        </span>
+    </div>
+</template>
+<script >
+    //TODO script 
+</script>
+<style>
+    /** TODO style **/
+</style>
+```
+
 ### HTML page
 
 ```html
@@ -124,6 +151,7 @@ For example:
   <br>
   <button  ch-logout>logout </button>
 </nav>
+<div id="app"></div>
 <script  src="/main.js"></script>
 </body>
 </html>
