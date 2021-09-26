@@ -105,7 +105,7 @@ For example:
 
 ### Template page html or blade or ejs or twig ...
 
-`Template send page to server`
+`Template sent by the serve`
 
 ```html
 <template>
