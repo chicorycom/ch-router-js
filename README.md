@@ -70,7 +70,8 @@ class About extends Controller {
 
 const routes = [
     { path: "/", view: Dashboard },
-    { path: "/about", view: About }
+    { path: "/about", view: About },
+    { path: "/post/:slug", view: About }
 ]
 
 const el = document.createElement('div')
@@ -94,7 +95,7 @@ router(options)
 Name | Default | Description
 ----|-------|----
 el | document.querySelector('.ch-router-js') | binding element
-routes | array object | route for page, [see more details](http://o94t0aflmu.preview.infomaniak.website)
+routes | array object | route for page, [see more details](https://chicorycom.net)
 save | `function` | selected html element attribute ch-save
 edit | `function` | selected html element attribute ch-edit
 destroy | `function` | selected html element attribute ch-destroy
@@ -144,6 +145,7 @@ For example:
 <nav>
   <a href="/" ch-link> Home page </a><br>
   <a href="/about" ch-link> About </a><br>
+  <a href="/post/title-post-1" ch-link> single post </a><br>
   
   <button  ch-save> Save form </button>
   <button  ch-edit> edit form </button>
@@ -250,4 +252,4 @@ router(opt)
 + `opt.destroy()`: callback
 + `opt.logout()`: callback
 
-[website]: http://o94t0aflmu.preview.infomaniak.website
+[website]: https://chicorycom.net

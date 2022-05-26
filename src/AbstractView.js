@@ -19,11 +19,12 @@ String.prototype.capitalize = function() {
     }
 
     /**
-     *
-     * @returns {Promise<string>}
+     * 
+     * @returns {Promise<*>}
      */
-    async getHtml() {
-      return "";
+     async  getHtml() {
+        const response = await this.get(this.params.slug || '/')
+        return this.view(response);
     }
 
     /**

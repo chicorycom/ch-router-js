@@ -1,7 +1,7 @@
 import Router from './Router'
 import AbstractView from './AbstractView'
 
-export const Controller = AbstractView
+const Controller = AbstractView
 
 
 /**
@@ -9,7 +9,7 @@ export const Controller = AbstractView
  * @param {object} options
  * @returns {{el}|*}
  */
-export function router (options)  {
+function router (options)  {
 
     // default options
     const defaultOption = {
@@ -35,17 +35,20 @@ export function router (options)  {
 
    window.addEventListener('DOMContentLoaded', () => {
 
-        document.body.addEventListener("click", async function (e) {
-
-            if (e.target.matches("[ch-link]")) {
+        document.querySelectorAll('[ch-link]').forEach(el => {
+            el.addEventListener("click", function (e) {
                 e.preventDefault();
+                console.log(e.target.href)
+                //debugger
                 return r.navigateTo(e.target.href)
-            }
+            })
+        })
+
+        document.body.addEventListener("click", async function (e) {
 
             if(e.target.matches("[ch-save]")){
                 e.preventDefault();
                 return await save(e.target)
-
             }
 
             if (e.target.matches("[ch-edit]")) {
@@ -70,7 +73,13 @@ export function router (options)  {
     return options
 }
 
+window.router = router
+window.Controller = Controller
 
+export default {
+    Controller,
+    router
+}
 
 
 

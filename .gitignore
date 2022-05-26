@@ -3,6 +3,7 @@
 *.orig
 .idea/
 .vscode/
+.yarn/
 bin/
 dist/
 node_modules/
@@ -11,7 +12,6 @@ versions/
 *.zip
 /bin
 package-lock.json
-yarn.lock
 yarn-error.log
 .npmignore
 
