@@ -49,25 +49,32 @@ String.prototype.capitalize = function() {
       const style_element = template.getElementsByTagName("style");
       const styles = Array.prototype.slice.call(style_element)
       const header = document.head
+      const body = document.body
 
       const taskTemplate = template.getElementsByTagName('template')[0];
       template = taskTemplate ? taskTemplate : template;
       const clone = taskTemplate ? document.importNode(template.content, true) : template;
 
 
-      template.appendChild(clone.cloneNode(true));
-
-      if(scripts.length > 0 && template) {
+      /*if(scripts.length > 0 && template) {
         scripts.forEach(script => {
           header.appendChild(script);
         })
-      }
+      }*/
 
       if(styles.length > 0 && template) {
         styles.forEach(style => {
           header.appendChild(style);
         })
       }
+
+      if(scripts.length > 0 && template) {
+          scripts.forEach(script => {
+            body.appendChild(script);
+          })
+      }
+
+      template.appendChild(clone.cloneNode(true));
 
       return template.innerHTML
     }

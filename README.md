@@ -3,7 +3,7 @@ Your Security System Network Integrator. [Chicorycom][website] 👋
 # ch-router-js
 
 🍭 Wow, such a lovely router frontend web site
-
+    export NODE_OPTIONS=--openssl-legacy-provider 
 
 ## Installation
 
